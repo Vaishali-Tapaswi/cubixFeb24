@@ -1,3 +1,15 @@
+Lab4 - cmd>docker ps           
+                    no containers are running
+       cmd>minikube start
+       cmd>docker ps 
+          minikube container
+       cmd>docker get nodes
+       cmd>docker get pods (po)
+       cmd>docker get nodes (no)
+
+To get short cuts for services
+          kubectl api-resources
+
 Lab3 - docker hub -> search for tomcat/node/go/mysql
           docker run imagename
                     -P  - random port mapping
