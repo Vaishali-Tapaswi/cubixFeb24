@@ -1,3 +1,6 @@
+minikube tunnel -> create load balancer
+kubectl expose deployment deploy5 --type=LoadBalancer --port=80
+kubectl create service ....
 Lab6 -  create deploy using yml file 
 	create empty folder deployment
 	create a file deploy.yaml
