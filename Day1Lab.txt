@@ -1,3 +1,15 @@
+Lab5 - create deployment 
+      kubectl get deployments
+	          no
+    Create a deployment
+       kubectl create deployment deploy1 --image=vaishalitapaswi/cubixnode
+       kubectl create deployment deploy2 --image=katacoda/docker-http-server
+    observe nodes, pods, deployment 
+      1 pod should be created (availability / ready)
+    kubectl describe pods {podname}
+    kubectl delete pods {oodname}
+       observe new pod getting created for same deployment
+      
 Lab4 - cmd>docker ps           
                     no containers are running
        cmd>minikube start
