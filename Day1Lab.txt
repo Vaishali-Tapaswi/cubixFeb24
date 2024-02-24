@@ -1,0 +1,26 @@
+Lab2 - search for docker playground, https://labs.play-with-docker.com/ 
+          or 
+      local machine
+      docker run hello-world
+      docker version
+
+Lab1 -  https://medium.com/edureka/microservice-architecture-5e7f056b90f1
+
+Ref
+    Development 
+      	Rich Client/Desktop Applications
+      	Thin Client/Web Applications
+      	Rich Internet Applications (RIA)
+      
+  Development / Deployment
+  		Huge Applications 
+  			1 Big/Huge Server
+  		Micro Services 
+  			5 Services (5 Servers)		
+  		
+  DevOps 
+  	5 servers -> war (tomcat), go server, node...
+  					java, tomcat, war 
+  					linux os, exe
+  					npm, node, copy folder 
+  		
