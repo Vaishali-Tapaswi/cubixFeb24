@@ -1,3 +1,13 @@
+Lab3 - docker hub -> search for tomcat/node/go/mysql
+          docker run imagename
+                    -P  - random port mapping
+                    -d  - detach mode 
+          docker run -d -P vaishalitapaswi/sprdemo
+          run it multiple times and check 
+                    docker ps (list of containers )
+                    docker images (list of images)
+          invoke from browser 
+
 Lab2 - search for docker playground, https://labs.play-with-docker.com/ 
           or 
       local machine
