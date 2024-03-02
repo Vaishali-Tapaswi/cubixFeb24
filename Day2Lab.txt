@@ -7,62 +7,64 @@ Lab1 - Simple Lab
       	
       cat /mnt/data/index.html
       pv-volume.yml
-      ---------------------------------
-      apiVersion: v1
-      kind: PersistentVolume
-      metadata:
-        name: task-pv-volume
-        labels:
-          type: local
-      spec:
-        storageClassName: manual
-        capacity:
-          storage: 10Gi
-        accessModes:
-          - ReadWriteOnce
-        hostPath:
-          path: "/mnt/data"
-      ----------------------------------
+---------------------------------
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+    
+----------------------------------
       kubectl apply -f pv-volume.yml
       kubectl get pv task-pv-volume
       pv-claim.yml
-      ----------------------------------
-      apiVersion: v1
-      kind: PersistentVolumeClaim
-      metadata:
-        name: task-pv-claim
-      spec:
-        storageClassName: manual
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 3Gi
-      ----------------------------------
+----------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+----------------------------------
       kubectl apply -f pv-claim.yml
       kubectl get pv task-pv-volume
       kubectl get pvc task-pv-claim
       pv-pod.yml
-      ----------------------------------
-      apiVersion: v1
-      kind: Pod
-      metadata:
-        name: task-pv-pod
-      spec:
-        volumes:
-          - name: task-pv-storage
-            persistentVolumeClaim:
-              claimName: task-pv-claim
-        containers:
-          - name: task-pv-container
-            image: nginx
-            ports:
-              - containerPort: 80
-                name: "http-server"
-            volumeMounts:
-              - mountPath: "/usr/share/nginx/html"
-                name: task-pv-storage
-      ----------------------------------
+----------------------------------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: task-pv-claim
+  containers:
+    - name: c1
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
+      
+----------------------------------
       kubectl apply -f pv-pod.yaml
       kubectl get pod task-pv-pod
       kubectl exec -it task-pv-pod -- /bin/bash
