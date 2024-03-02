@@ -66,7 +66,7 @@ spec:
       
 ----------------------------------
       kubectl apply -f pv-pod.yaml
-      kubectl get pod task-pv-pod
+      kubectl get pod pod2
       kubectl exec -it task-pv-pod -- /bin/bash
       	apt update
       	apt install curl
