@@ -1,5 +1,5 @@
 Lab2 - Create namespace
-    kubectl create namespace nameofns
+    kubectl create namespace myns
     kubectl create deployment deploy1 --image=vaishalitapaswi/cubixnode --namespace myns
     kubectl get deployments (will not be listed)
     kubectl get deployments --namespace myns
