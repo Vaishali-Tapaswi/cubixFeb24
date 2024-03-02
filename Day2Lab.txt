@@ -33,6 +33,7 @@ spec:
         dashboard -check secret 
                    check logs on secpod
                    check folder - /etc/secret-volume
+                   cat /etc/secret-volume/username
 
 
 Lab3 - Create a folder services
