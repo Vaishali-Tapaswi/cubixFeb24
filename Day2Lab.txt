@@ -1,3 +1,10 @@
+Lab2 - Create namespace
+    kubectl create namespace nameofns
+    kubectl create deployment deploy1 --image=vaishalitapaswi/cubixnode --namespace myns
+    kubectl get deployments (will not be listed)
+    kubectl get deployments --namespace myns
+    kubectl get deployments -A
+
 Lab1 - Simple Lab
               https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/
       		Write Steps 
