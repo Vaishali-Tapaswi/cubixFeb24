@@ -1,3 +1,40 @@
+Lab4 - secret and pod to test the same
+sec.yml
+----------------
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+data:
+  username: YWRtaW4K
+  password: bXlwYXNzCg==
+----------------
+secpod.yml
+----------------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secpod
+spec:
+  containers:
+    - name: test-container
+      image: nginx
+      volumeMounts:
+        # name must match the volume name below
+        - name: secret-volume
+          mountPath: /etc/secret-volume
+  # The secret data is exposed to Containers in the Pod through a Volume.
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: mysecret
+----------------
+        apply sec.yml and then secpod
+        dashboard -check secret 
+                   check logs on secpod
+                   check folder - /etc/secret-volume
+
+
 Lab3 - Create a folder services
         copy pv.yml
         copy pvc.yml
