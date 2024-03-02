@@ -65,14 +65,14 @@ spec:
           name: task-pv-storage
       
 ----------------------------------
-      kubectl apply -f pv-pod.yaml
+      kubectl apply -f pv-pod.yml
       kubectl get pod pod2
       kubectl exec -it task-pv-pod -- /bin/bash
       	apt update
       	apt install curl
       	curl http://localhost/
       	
-      kubectl delete pod task-pv-pod
+      kubectl delete pod pod2
       kubectl delete pvc task-pv-claim
       kubectl delete pv task-pv-volume
 
